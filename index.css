@@ -1,0 +1,222 @@
+/* Resetando margens e preenchimentos padrão e garantindo que o box-sizing seja border-box para todos os elementos */
+body, h1, p, select, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilizando o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão da página */
+    line-height: 1.6; /* Aumenta o espaçamento entre linhas para melhorar a legibilidade */
+    background-color: #f4f4f4; /* Cor de fundo suave para o corpo da página */
+    color: #333; /* Cor do texto para um contraste adequado com o fundo */
+}
+
+/* Estilizando o cabeçalho */
+header {
+    background: #2b73df; /* Cor de fundo azul para o cabeçalho */
+    color: #fff; /* Cor do texto branca */
+    padding: 1rem; /* Espaçamento interno do cabeçalho */
+    text-align: center; /* Centraliza o texto dentro do cabeçalho */
+}
+
+/* Estilizando a área principal do conteúdo */
+#container {
+    display: flex;
+    padding: 1rem; /* Espaçamento interno da área principal */
+    justify-content: space-between; /* Distribui o espaço entre as seções */
+    height: 800px;
+    max-width: 2000px; /* Limita a largura máxima da área principal */
+    margin: auto; /* Centraliza a área principal horizontalmente */
+    border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave ao redor da área principal */
+}
+
+/* Estilizando cada seção dentro do container */
+section {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+    width: 100%; /* Faz a seção ocupar toda a largura disponível do container */
+    max-width: 50%; /* Define a largura máxima da seção */
+    background-color: rgb(247, 242, 242);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave ao redor da seção */
+    padding: 1rem; /* Espaçamento interno para evitar que o conteúdo encoste nas bordas */
+    margin: 0 0.3rem; /* Espaçamento horizontal entre as seções */
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+}
+
+/* Estilizando o formulário */
+form {
+    display: flex; /* Usa flexbox para organizar os elementos do formulário */
+    flex-direction: column; /* Organiza os elementos em uma coluna vertical */
+    align-items: center;
+}
+
+/* Estilizando os rótulos dos campos do formulário */
+label {
+    margin-bottom: 0.5rem; /* Espaçamento abaixo dos rótulos */
+    font-weight: bold; /* Torna o texto dos rótulos negrito */
+}
+
+/* Estilizando as caixas de seleção */
+select {
+    width: 95%; /* Faz a caixa de seleção ocupar toda a largura disponível */
+    padding: 0.5rem; /* Espaçamento interno da caixa de seleção */
+    margin-bottom: 1rem; /* Espaçamento abaixo da caixa de seleção */
+    border: 1px solid #ccc; /* Borda cinza clara ao redor da caixa de seleção */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Estilizando o botão */
+button {
+    padding: 0.5rem; /* Espaçamento interno do botão */
+    background: #2b73df; /* Cor de fundo azul para o botão */
+    color: #fff; /* Cor do texto branca */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 4px; /* Bordas arredondadas para o botão */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão */
+    font-size: 1rem; /* Tamanho da fonte do texto no botão */
+}
+
+/* Alterando a aparência do botão ao passar o mouse sobre ele */
+button:hover {
+    background: #2b73df; /* Mantém a mesma cor de fundo ao passar o mouse */
+    color: black; /* Altera a cor do texto para preto ao passar o mouse */
+}
+
+/* Classe para esconder elementos */
+.hidden {
+    display: none; /* Oculta o elemento aplicando display: none */
+}
+
+/* Estilizando a área de resultado */
+#resultado {
+    margin-top: 1rem; /* Espaçamento acima da área de resultado */
+    background: #e9ecef; /* Cor de fundo cinza claro */
+    padding: 1rem; /* Espaçamento interno da área de resultado */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Estilizando a seção de conteúdo principal para centralizar os elementos horizontalmente e alinhar ao topo verticalmente */
+#conteudoPrincipal {
+    display: flex; /* Usa flexbox para organizar os itens dentro da seção */
+    flex-direction: column; /* Organiza os itens em uma coluna vertical */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: flex-start; /* Alinha os itens ao topo verticalmente */
+    height: 100%; /* Garante que a seção ocupe toda a altura disponível do container */
+    width: 100%; /* Garante que a seção ocupe toda a largura disponível do container */
+    padding-top: 1rem; /* Adiciona algum espaçamento no topo, se necessário */
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura e altura total */
+}
+
+/* Ajustando o formulário dentro da seção */
+#formVeiculo {
+    width: 100%; /* Faz o formulário ocupar toda a largura disponível da seção */
+    max-width: 500px; /* Define uma largura máxima para o formulário */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor do formulário */
+    background: #fff; /* Define um fundo branco para o formulário */
+    padding: 1rem; /* Espaçamento interno do formulário */
+    border-radius: 8px; /* Bordas arredondadas para o formulário */
+    display: flex; /* Usa flexbox para organizar os elementos */
+    flex-direction: column; /* Organiza os elementos em uma coluna vertical */
+    align-items: stretch; /* Faz os elementos ocuparem a largura total do formulário */
+}
+
+/* Estilizando a seção de histórico */
+#historico {
+    display: flex; /* Usa flexbox para organizar os itens dentro da seção */
+    flex-direction: column; /* Organiza os itens em uma coluna vertical */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 2rem; /* Espaçamento interno da seção */
+    box-sizing: border-box; /* Garante que o padding seja incluído nas dimensões totais */
+    width: 100%; /* Faz a seção ocupar toda a largura disponível do container */
+    max-width: 25%; /* Define a largura máxima da seção */
+    background-color: rgb(247, 242, 242);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave ao redor da seção */
+    margin: 0 0.3rem; /* Espaçamento horizontal entre as seções */
+}
+
+/* Estilizando o título da seção de histórico */
+#historico h2 {
+    margin-bottom: 1rem; /* Espaçamento abaixo do título para separar das listas */
+    text-align: center; /* Mantém o título centralizado */
+    width: 100%; /* Garante que o título ocupe toda a largura da seção */
+}
+
+/* Estilizando as listas dentro da seção de histórico */
+#historico ul {
+    list-style-type: disc; /* Define o estilo dos marcadores das listas como disco */
+    padding-left: 2rem; /* Adiciona algum preenchimento à esquerda para os itens da lista */
+    text-align: left; /* Alinha o texto dos itens da lista à esquerda */
+    width: 100%; /* Faz com que a lista ocupe toda a largura disponível da seção */
+}
+
+/* Estilizando os itens das listas */
+#historico li {
+    margin-bottom: 0.2rem; /* Espaçamento abaixo de cada item da lista */
+}
+
+/* Estilizando links dentro das listas */
+#historico li a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #2b73df; /* Define a cor dos links */
+}
+
+#historico li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilizando a seção de lista de desejos */
+#listaDesejos {
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em uma coluna */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    background-color: rgb(247, 242, 242);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave ao redor da seção */
+    padding: 2rem; /* Espaçamento interno para evitar que o conteúdo encoste nas bordas */
+    width: 100%; /* Faz a seção ocupar toda a largura disponível do container */
+    max-width: 25%; /* Define a largura máxima da seção */
+    margin: 0 0.3rem; /* Espaçamento horizontal entre as seções */
+}
+
+/* Estilizando o título da seção de lista de desejos */
+#listaDesejos h2 {
+    margin-bottom: 1rem; /* Espaçamento abaixo do título para separar das listas */
+    text-align: center; /* Centraliza o título */
+    width: 100%; /* Garante que o título ocupe toda a largura da seção */
+}
+/* Estilizando as listas dentro da seção de lista de desejos*/
+#listaDesejos ul {
+    list-style-type: disc; /* Define o estilo dos marcadores das listas como disco */
+    padding-left: 2rem; /* Adiciona algum preenchimento à esquerda para os itens da lista */
+    text-align: left; /* Alinha o texto dos itens da lista à esquerda */
+    width: 100%; /* Faz com que a lista ocupe toda a largura disponível da seção */
+}
+
+/* Estilizando os itens das listas */
+#listaDesejos li {
+    margin-bottom: 0.2rem; /* Espaçamento abaixo de cada item da lista */
+}
+
+/* Estilizando links dentro das listas */
+#listaDesejos li a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #2b73df; /* Define a cor dos links */
+}
+
+#listaDesejos li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilizando o campo de favoritos */
+#favoritos {
+    margin-top: 1rem; /* Espaçamento acima da seção de favoritos */
+    background: #e9ecef; /* Cor de fundo cinza claro */
+    padding: 1rem; /* Espaçamento interno da seção de favoritos */
+    border-radius: 4px; /* Bordas arredondadas */
+}

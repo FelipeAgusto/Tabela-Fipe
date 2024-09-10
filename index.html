@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Veículos Tabela FIPE</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <h1>Consulta de Veículos Tabela FIPE</h1>
+    </header>
+
+    <div id="container">
+        <section id="listaDesejos">
+            <h2>Lista de Favoritos</h2>
+            <ul id="listaFavoritos">
+                <li>Não há favoritos salvos.</li>
+            </ul>
+        </section>
+
+        <section id="conteudoPrincipal">
+            <form id="formVeiculo">
+                <label for="tipoVeiculo">Selecione o tipo de veículo:</label>
+                <select id="tipoVeiculo" name="tipoVeiculo">
+                    <option value="">-- Escolha --</option>
+                    <option value="motorcycles">Motos</option>
+                    <option value="cars">Carros</option>
+                    <option value="trucks">Caminhões</option>
+                </select>
+
+                <div id="detalhesVeiculo" class="hidden">
+                    <label for="marcaVeiculo">Marca:</label>
+                    <select id="marcaVeiculo" name="marcaVeiculo">
+                        <option value="">-- Escolha --</option>
+                    </select>
+
+                    <label for="modeloVeiculo">Modelo:</label>
+                    <select id="modeloVeiculo" name="modeloVeiculo">
+                        <option value="">-- Escolha --</option>
+                    </select>
+
+                    <label for="anoVeiculo">Ano:</label>
+                    <select id="anoVeiculo" name="anoVeiculo">
+                        <option value="">-- Escolha --</option>
+                    </select>
+
+                    <button type="button" id="consultar">Consultar</button>
+                    <button type="button" id="novaPesquisa">Nova Pesquisa</button>
+                </div>
+
+                <div id="resultado" class="hidden">
+                    <h2>Informações sobre o Veículo</h2>
+                    <p id="infoVeiculo"></p>
+                    <label for="favoritos">Deseja guardar essa consulta em seus favoritos?</label>
+                    <button type="button" id="guardarFavoritos">Guardar Favoritos</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="historico">
+            <h2>Histórico de pesquisa</h2>
+            <ul id="listaHistorico">
+                <li>Nenhuma pesquisa recente.</li>
+            </ul>
+        </section>
+        
+    </div>
+
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
