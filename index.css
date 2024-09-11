@@ -220,3 +220,18 @@ button:hover {
     padding: 1rem; /* Espaçamento interno da seção de favoritos */
     border-radius: 4px; /* Bordas arredondadas */
 }
+#listaHistorico {
+    color: #2b73df;
+    list-style: none; /* Remove os marcadores padrão da lista, se necessário */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+}
+
+#listaHistorico li {
+    padding: 5px 0; /* Adiciona algum espaço entre os itens, se desejar */
+}
+
+#listaHistorico li:hover {
+    text-decoration: underline; /* Adiciona o sublinhado quando o mouse está sobre o item */
+    cursor: pointer; /* Opcional: muda o cursor para indicar que é clicável */
+}

@@ -211,22 +211,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 conteudo = conteudo + texto;
             }
             listaFavoritos.innerHTML = conteudo;
-        }
-        const btnRemover = document.querySelectorAll(".btnRemover");
+            const btnRemover = document.querySelectorAll(".btnRemover");
         adicionaCliks(btnRemover);
+        }
+        
     }
     atualizarDesejos();
 
     // remove um favorito do localStorage.
     function removeFavorito(codVeiculo) {
-        let favoritos = JSON.parse(localStorage.getItem('favoritos'));
-        console.log(favoritos)
-        const removeIndex = favoritos.findIndex((favorito) => favorito.modelo == codVeiculo);
-        favoritos.splice(removeIndex, 1)
-        console.log(favoritos);
-        localStorage.clear('favoritos');
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        atualizarDesejos();
+        let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        if (favoritos.length > 1) {
+            favoritos = JSON.parse(localStorage.getItem('favoritos'));
+            const removeIndex = favoritos.findIndex((favorito) => favorito.modelo == codVeiculo);
+            favoritos.splice(removeIndex, 1)
+
+            localStorage.clear('favoritos');
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+            atualizarDesejos();
+        }
+        if (favoritos.length == 1) {
+            favoritos = JSON.parse(localStorage.getItem('favoritos'));
+            localStorage.clear('favoritos');
+            atualizarDesejos();
+
+        }
     }
 
     //criando os cliques para cada botão remover
@@ -239,49 +248,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-// Adiciona os botões à cada componente da lista.
-const btnHistorico = document.querySelectorAll(".historico");
+    // Adiciona os botões à cada componente da lista.
+    const btnHistorico = document.querySelectorAll(".historico");
 
-for (const element of btnHistorico) {
-    element.addEventListener('click', async () => {
-        const tipo = element.getAttribute('data-tipo');
-        const codMarca = element.getAttribute('data-codmarca');
-        const codModelo = element.getAttribute('data-codmodelo');
-        const codAno = element.getAttribute('data-codano');
-        
-        // Preenche o campo tipo com o valor do histórico
-        tipoVeiculo.value = tipo;
-        
-        // Atualiza as opções de marca e modelo com base no tipo selecionado
-        await buscarDados('tipo'); // Atualiza marcas
-        
-        // Define o valor da marca após as opções de marca serem atualizadas
-        marcaVeiculo.value = codMarca;
-        await buscarDados('marca'); // Atualiza modelos
-        
-        // Define o valor do modelo após as opções de modelo serem atualizadas
-        modeloVeiculo.value = codModelo;
-        await buscarDados('ano'); // Atualiza anos
-        
-        // Define o valor do ano
-        anoVeiculo.value = codAno;
+    for (const element of btnHistorico) {
+        element.addEventListener('click', async () => {
+            const tipo = element.getAttribute('data-tipo');
+            const codMarca = element.getAttribute('data-codmarca');
+            const codModelo = element.getAttribute('data-codmodelo');
+            const codAno = element.getAttribute('data-codano');
 
-        // Carrega informações detalhadas se todos os campos estiverem preenchidos
-        if (tipo && codMarca && codModelo && codAno) {
-            const infoRecebida = await buscarInfoVeiculo(tipo, codMarca, codModelo, codAno);
-            infoVeiculo.textContent = `Mês de referência ${infoRecebida.referenceMonth},
+            // Preenche o campo tipo com o valor do histórico
+            tipoVeiculo.value = tipo;
+
+            // Atualiza as opções de marca e modelo com base no tipo selecionado
+            await buscarDados('tipo'); // Atualiza marcas
+
+            // Define o valor da marca após as opções de marca serem atualizadas
+            marcaVeiculo.value = codMarca;
+            await buscarDados('marca'); // Atualiza modelos
+
+            // Define o valor do modelo após as opções de modelo serem atualizadas
+            modeloVeiculo.value = codModelo;
+            await buscarDados('ano'); // Atualiza anos
+
+            // Define o valor do ano
+            anoVeiculo.value = codAno;
+
+            // Carrega informações detalhadas se todos os campos estiverem preenchidos
+            if (tipo && codMarca && codModelo && codAno) {
+                const infoRecebida = await buscarInfoVeiculo(tipo, codMarca, codModelo, codAno);
+                infoVeiculo.textContent = `Mês de referência ${infoRecebida.referenceMonth},
                                        Marca ${infoRecebida.brand},
                                        Modelo ${infoRecebida.model}, 
                                        Ano ${infoRecebida.modelYear},
                                        Valor ${infoRecebida.price}.`;
-            resultado.classList.remove('hidden');
-        } else {
-            resultado.classList.add('hidden');
-        }
+                resultado.classList.remove('hidden');
+            } else {
+                resultado.classList.add('hidden');
+            }
 
-        detalhesVeiculo.classList.remove('hidden');
-    });
-}
+            detalhesVeiculo.classList.remove('hidden');
+        });
+    }
 });
 
 
